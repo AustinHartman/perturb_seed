@@ -1,0 +1,34 @@
+dataset_name: xaira
+
+adata_path: /home/hartmana_stanford_edu/projects/offtarget_perturb/data_xaira/HCT116_filtered_dual_guide_cells.h5ad
+sgrna_csv: sgrna_xaira.csv
+output_csv: xaira_hct116_2kb_filt_no_lfc_cutoff_off_target_candidates.csv
+output_dir: outs
+
+tss_map_csv: ./tss_map.csv
+genome_fa: ./genomes/hg38/hg38.fa
+genome_fai: ./genomes/hg38/hg38.fa.fai
+
+obs_guide_col: guide_target
+obs_gene_col: gene_target
+
+guide_filter_col: null
+guide_filter_val: null
+
+nt_label: "Non-Targeting"
+
+dataset_type: paired_guide
+min_kd_pairs: 1
+
+seed_length: 5
+
+n_top_features: 5000
+n_neighbors: 20
+umap_min_dist: 0.1
+
+kd_lfc_thresh: 0.5
+log2fc_pseudocount: 0.01
+min_cells_per_guide_vector: 20
+
+promoter_upstream: 2000
+promoter_downstream: 2000

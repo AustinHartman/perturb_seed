@@ -1,0 +1,43 @@
+dataset_name: zhu
+
+# Input / output paths
+adata_path: /home/hartmana_stanford_edu/projects/marson_gwps_data/D4_Stim48hr.assigned_guide.h5ad
+sgrna_csv: sgrna_zhu.csv
+output_csv: zhu_cd4t_d4_48hr_filt_no_lfc_cutoff_off_target_candidates.csv
+output_dir: outs
+
+tss_map_csv: tss_map.csv   # included in this repo (GENCODE v47 hg38)
+genome_fa: /home/hartmana_stanford_edu/genomes/hg38/hg38.fa
+genome_fai: /home/hartmana_stanford_edu/genomes/hg38/hg38.fa.fai
+
+# Column names in h5ad obs
+obs_guide_col: guide_id
+obs_gene_col: perturbed_gene_name
+
+# Cell filter: keep only single-guide targeting cells
+guide_filter_col: guide_group
+guide_filter_val: "targeting single sgRNA"
+
+# Non-targeting control label (value in obs_gene_col)
+nt_label: "NTC"
+
+# Experimental design
+dataset_type: single_guide
+min_kd_pairs: 1          # min guides showing KD to call a validated target
+
+# Seed parameters
+seed_length: 5            # initial seed from 3' end; extended upward if match found
+
+# Neighbour / UMAP parameters
+n_top_features: 5000
+n_neighbors: 20
+umap_min_dist: 0.1
+
+# Knockdown detection thresholds
+kd_lfc_thresh: 0.5   # ~2-fold change
+log2fc_pseudocount: 0.01   # added to both numerator and denominator before log2
+min_cells_per_guide_vector: 20
+
+# Promoter window around TSS (bp)
+promoter_upstream: 1000
+promoter_downstream: 1000
