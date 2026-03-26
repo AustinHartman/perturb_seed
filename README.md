@@ -20,7 +20,7 @@ The pipeline nominates off-target CRISPR guide candidates by combining seed alig
 
 ### Output
 
-`*_off_target_candidates.csv`: Off-target candidates with seed match metrics
+`*_off_target_candidates.csv`: Sorted by seed match length and off-target gene log2 fold-change so higher likelihood off-targets will be found at the beginning of the file with very low likelihood off-target events at the bottom
 
 ### Output Columns
 
