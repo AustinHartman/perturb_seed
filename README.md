@@ -9,8 +9,8 @@ The pipeline nominates off-target CRISPR guide candidates by combining seed alig
 ### Repository Structure
 
 - `off_target_pipeline_perturb.py` — Main pipeline script for off-target candidate generation
-- `tss_map.csv` — Transcription start site (TSS) coordinates for ~77K human genes (hg38)
-- `guide_libraries/` — sgRNA library CSVs for each supported dataset
+- `tss_map.csv` — Transcription start sites coordinates for hg38
+- `guide_libraries/` — sgRNA library CSVs for each analyzed dataset
   - `sgrna_bradu.csv` — K562 cells (Bradu & Blair dataset)
   - `sgrna_replogle.csv` — K562 cells (Replogle dataset)
   - `sgrna_xaira.csv` — HCT116 cells (Xaira dataset)
