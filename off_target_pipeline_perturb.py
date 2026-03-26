@@ -288,8 +288,8 @@ def compute_neighbors_perturb(pb_guide: pd.DataFrame, pb_gene: pd.DataFrame, obs
     fp_pca = pca.fit_transform(fp_sub)
     # save fp_pca to a DataFrame for easier debugging and potential downstream use
     fp_pca_df = pd.DataFrame(fp_pca, index=guide_ids, columns=[f"PC{i+1}" for i in range(fp_pca.shape[1])])
-    guide_fingerprint_pca_path = output_csv.with_name(output_csv.stem + "_guide_fingerprint_pca.csv")
-    fp_pca_df.to_csv(Path(P["output_dir"]) / guide_fingerprint_pca_path)
+    # guide_fingerprint_pca_path = output_csv.with_name(output_csv.stem + "_guide_fingerprint_pca.csv")
+    # fp_pca_df.to_csv(Path(P["output_dir"]) / guide_fingerprint_pca_path)
     nn = NearestNeighbors(n_neighbors=n_neighbors + 1, metric="euclidean", n_jobs=-1) # add one bc nearest neighbor is self
     nn.fit(fp_pca)
     _, indices = nn.kneighbors(fp_pca)
@@ -831,9 +831,9 @@ def main():
     pb_gene, pb_guide, var, obs, excluded_df = compute_pseudobulk()
     print(f"  pb_gene: {pb_gene.shape}  pb_guide: {pb_guide.shape}\n", flush=True)
 
-    excluded_csv = output_csv.with_name(output_csv.stem + "_excluded_guides.csv")
-    excluded_df.to_csv(excluded_csv, index=False)
-    print(f"  Excluded guides written to: {excluded_csv}\n", flush=True)
+    # excluded_csv = output_csv.with_name(output_csv.stem + "_excluded_guides.csv")
+    # excluded_df.to_csv(excluded_csv, index=False)
+    # print(f"  Excluded guides written to: {excluded_csv}\n", flush=True)
 
     print("Computing guide-level neighbors (Step 2)…")
     guide_neighbor_map = compute_neighbors_perturb(pb_guide, pb_gene, obs, var)
@@ -843,9 +843,9 @@ def main():
     kd_df, validated_genes, log2fc_df = detect_knockdowns(pb_guide, pb_gene, obs, var)
     print(f"  Validated target genes: {len(validated_genes):,}\n", flush=True)
 
-    ontarget_lfc_csv = output_csv.with_name(output_csv.stem + "_ontarget_lfcs.csv")
-    kd_df.to_csv(ontarget_lfc_csv, index=False)
-    print(f"  On-target LFCs written to: {ontarget_lfc_csv}\n", flush=True)
+    # ontarget_lfc_csv = output_csv.with_name(output_csv.stem + "_ontarget_lfcs.csv")
+    # kd_df.to_csv(ontarget_lfc_csv, index=False)
+    # print(f"  On-target LFCs written to: {ontarget_lfc_csv}\n", flush=True)
 
     print("Finding guide-level off-target events (Step 4)…")
     events = find_offtarget_events_perturb(kd_df, validated_genes, guide_neighbor_map, log2fc_df, var, obs)
