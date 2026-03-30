@@ -60,7 +60,7 @@ The two described `dataset_type` values covered the experimental designs for the
 
 ## Resources
 
-- 📄 [Read the preprint](https://www.biorxiv.org)
+- 📄 [Read the preprint](https://www.biorxiv.org/content/10.64898/2026.03.27.714658v2)
 - 🔧 [GitHub repository to reproduce analyses in the preprint](https://github.com/AustinHartman/perturb_seed_reproduce)
 - 🌐 [Web-app to query guides for seed alignments near transcription start sites](https://crispr-seed-finder.vercel.app/)
 
