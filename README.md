@@ -51,6 +51,8 @@ conda activate vcp
 
 All analyses described in the preprint were performed on a GCP machine with 256 GB memory and 32 CPUs.
 
+**Expected installation time:** Creating the conda environment takes ~10 minutes.
+
 ## Usage
 
 ```bash
@@ -58,6 +60,8 @@ python off_target_pipeline_perturb.py --yaml input_yamls/params_replogle.yaml
 ```
 
 Each YAML file specifies the input h5ad AnnData object, sgRNA library, reference genome paths, and other parameters.
+
+**Expected runtime:** On a machine comparable to the one described above (256 GB memory, 32 CPUs), a single dataset typically completes in ~10 minutes, though this depends on the on-disk matrix format of the input AnnData object (e.g. dense vs. sparse, CSR vs. CSC), which affects how quickly the data can be loaded and processed.
 
 #### Parameters:
 
