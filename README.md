@@ -38,6 +38,19 @@ The pipeline nominates off-target CRISPR guide candidates by combining seed alig
 - `seed_match_start` — Start position of seed match
 - `seed_match_strand` — Strand of seed match
 
+## Installation
+
+Clone the repository and create the conda environment from `environment.yml`:
+
+```bash
+git clone https://github.com/AustinHartman/perturb_seed.git
+cd perturb_seed
+conda env create -f environment.yml
+conda activate vcp
+```
+
+All analyses described in the preprint were performed on a GCP virtual machine with 256 GB memory and 32 CPUs.
+
 ## Usage
 
 ```bash
