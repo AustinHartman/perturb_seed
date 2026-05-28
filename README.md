@@ -49,7 +49,7 @@ conda env create -f environment.yml
 conda activate vcp
 ```
 
-All analyses described in the preprint were performed on a GCP virtual machine with 256 GB memory and 32 CPUs.
+All analyses described in the preprint were performed on a GCP machine with 256 GB memory and 32 CPUs.
 
 ## Usage
 
